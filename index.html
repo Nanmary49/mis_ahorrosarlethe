@@ -111,7 +111,10 @@
 <div class="container">
     <!-- PANTALLA 0: LOGIN -->
     <div id="pantalla-login">
-        <div class="avatar-container"><h1>✨</h1></div>
+        <div class="avatar-container">
+            <!-- Usa la foto que subiste en la raíz de tu GitHub -->
+            <img src="arlethe.jpg" alt="Arlethe" class="avatar">
+        </div>
         <h1>Hola, Arlethe</h1>
         <p class="subtitle">🔒 Espacio Privado</p>
         <form id="form-login">
@@ -125,6 +128,10 @@
 
     <!-- PANTALLA 1: INICIO -->
     <div id="pantalla-inicio" class="hidden">
+        <div class="avatar-container">
+            <!-- Usa la foto que subiste en la raíz de tu GitHub -->
+            <img src="arlethe.jpg" alt="Arlethe" class="avatar">
+        </div>
         <h1>Mis Ahorros</h1>
         <p class="subtitle">Mi libreta digital 💸</p>
         <button class="btn" onclick="mostrarRegistro()">Registro aquí mis ahorros 📝</button>
@@ -159,7 +166,7 @@
 
 <script>
     // ⚠️ REEMPLAZA ESTA URL CON TU LINK DE GOOGLE APPS SCRIPT EN LA LÍNEA 188
-    const SCRIPT_URL = "TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI";
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzGpBW9iNNmAj9y-XMDeM6f4G4SvwBWNFIA_OLuBmrApLKkhaEyPlkC2i88R-JJIfQ/exec";
     const CONTRASEÑA_CORRECTA = "arlethe2026"; 
 
     // Configurar fecha actual
@@ -177,7 +184,7 @@
     ahora.setMinutes(ahora.getMinutes() - ahora.getTimezoneOffset());
     document.getElementById('fechahora').value = ahora.toISOString().slice(0,16);
 
-    // Login corregido para funcionar siempre localmente
+    // Login
     document.getElementById('form-login').addEventListener('submit', function(e) {
         e.preventDefault();
         if (document.getElementById('password-input').value === CONTRASEÑA_CORRECTA) {
@@ -207,7 +214,7 @@
         cargarTotal();
     }
 
-    // Guardado optimizado sin bloqueos de navegador
+    // Guardado
     document.getElementById('form-ahorros').addEventListener('submit', function(e) {
         e.preventDefault();
         const btn = document.getElementById('btn-guardar');
@@ -220,7 +227,6 @@
             cantidad: document.getElementById('cantidad').value
         };
 
-        // El truco técnico: usar formato de formulario tradicional evita bloqueos de seguridad
         fetch(SCRIPT_URL, {
             method: 'POST',
             mode: 'cors',
@@ -240,3 +246,4 @@
 </script>
 </body>
 </html>
+   

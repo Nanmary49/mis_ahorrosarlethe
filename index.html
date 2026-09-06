@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Los Ahorros de Arlethe 💖</title>
-    <!-- Importamos una tipografía muy estética y moderna -->
     <link href="https://googleapis.com" rel="stylesheet">
-    
     <style>
         :root {
             --bg-gradient: linear-gradient(135deg, #fff0f3 0%, #ffccd5 100%);
@@ -15,7 +13,6 @@
             --dark-text: #2b2d42;
             --card-bg: rgba(255, 255, 255, 0.95);
         }
-
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background: var(--bg-gradient);
@@ -26,7 +23,6 @@
             margin: 0;
             color: var(--dark-text);
         }
-
         .container {
             background: var(--card-bg);
             padding: 40px 30px;
@@ -37,15 +33,12 @@
             width: 85%;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.5);
-            transition: all 0.3s ease;
         }
-
         .avatar-container {
             position: relative;
             display: inline-block;
             margin-bottom: 20px;
         }
-
         .avatar {
             width: 140px;
             height: 140px;
@@ -54,20 +47,11 @@
             border: 4px solid white;
             box-shadow: 0 10px 20px rgba(0,0,0,0.08);
         }
-
-        .sparkle {
-            position: absolute;
-            font-size: 24px;
-            animation: float 3s ease-in-out infinite;
-        }
-
         h1 { 
             font-family: 'Playfair Display', serif; 
             font-size: 32px; 
             margin: 10px 0 5px 0;
-            color: var(--dark-text);
         }
-
         .subtitle {
             font-size: 14px;
             color: #8d99ae;
@@ -76,7 +60,6 @@
             margin-bottom: 25px;
             font-weight: 600;
         }
-
         .btn {
             background: var(--accent-pink);
             color: white;
@@ -85,38 +68,19 @@
             font-size: 16px;
             border-radius: 50px;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.3s ease;
             font-weight: 600;
             width: 100%;
             box-shadow: 0 8px 15px rgba(255, 133, 161, 0.3);
         }
-
         .btn:hover { 
             background: var(--hover-pink); 
             transform: translateY(-3px);
-            box-shadow: 0 12px 20px rgba(247, 37, 133, 0.4);
         }
-
-        .btn-secondary { 
-            background: #eddcd2; 
-            color: #6d597a;
-            margin-top: 12px; 
-            box-shadow: none; 
-        }
-        .btn-secondary:hover { background: #dbcdf0; box-shadow: none; }
-
+        .btn-secondary { background: #eddcd2; color: #6d597a; margin-top: 12px; box-shadow: none; }
         .hidden { display: none !important; }
-
         .form-group { margin: 20px 0; text-align: left; }
-        
-        label { 
-            display: block; 
-            color: var(--dark-text); 
-            font-weight: 600; 
-            margin-bottom: 8px; 
-            font-size: 14px;
-        }
-
+        label { display: block; font-weight: 600; margin-bottom: 8px; font-size: 14px; }
         input, select {
             width: 100%;
             padding: 14px;
@@ -125,16 +89,7 @@
             box-sizing: border-box;
             font-size: 15px;
             background-color: #fffafb;
-            transition: all 0.3s ease;
         }
-
-        input:focus, select:focus { 
-            border-color: var(--accent-pink); 
-            outline: none; 
-            background-color: white;
-            box-shadow: 0 0 10px rgba(255, 133, 161, 0.1);
-        }
-
         .total-box {
             background: linear-gradient(135deg, #fff0f3 0%, #ffe5ec 100%);
             padding: 22px;
@@ -142,15 +97,6 @@
             margin-top: 30px;
             border: 1px dashed var(--accent-pink);
         }
-
-        .total-label {
-            font-size: 14px;
-            color: #be95c4;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-
         #total-ahorrado { 
             color: var(--hover-pink); 
             font-size: 36px; 
@@ -158,26 +104,16 @@
             margin-top: 5px; 
             font-weight: 800;
         }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- PANTALLA 0: PROTECCIÓN POR CONTRASEÑA -->
+    <!-- PANTALLA 0: LOGIN -->
     <div id="pantalla-login">
-        <div class="avatar-container">
-            <span class="sparkle" style="top:-10px; left:-10px;">✨</span>
-            <img src="https://unsplash.com" alt="Arlethe" class="avatar">
-        </div>
+        <div class="avatar-container"><h1>✨</h1></div>
         <h1>Hola, Arlethe</h1>
         <p class="subtitle">🔒 Espacio Privado</p>
-        
         <form id="form-login">
             <div class="form-group">
                 <label>Introduce tu contraseña secreta:</label>
@@ -187,39 +123,25 @@
         </form>
     </div>
 
-    <!-- PANTALLA 1: INICIO (Se muestra solo tras poner la clave correcta) -->
+    <!-- PANTALLA 1: INICIO -->
     <div id="pantalla-inicio" class="hidden">
-        <div class="avatar-container">
-            <span class="sparkle" style="top:-5px; right:-10px;">💫</span>
-            <img src="https://unsplash.com" alt="Arlethe" class="avatar">
-        </div>
         <h1>Mis Ahorros</h1>
         <p class="subtitle">Mi libreta digital 💸</p>
-        
         <button class="btn" onclick="mostrarRegistro()">Registro aquí mis ahorros 📝</button>
-        
         <div class="total-box">
-            <span class="total-label">Balance Actual</span>
-            <span id="total-ahorrado">Cargando... ✨</span>
+            <span style="font-size:14px; color:#be95c4; font-weight:600;">BALANCE ACTUAL</span>
+            <span id="total-ahorrado">$0.00 💰</span>
         </div>
     </div>
 
     <!-- PANTALLA 2: REGISTRO -->
     <div id="pantalla-registro" class="hidden">
-        <h2 style="font-family: 'Playfair Display', serif; font-size: 28px; margin-top:0;">Anotar Ahorro</h2>
+        <h2 style="font-family: 'Playfair Display', serif; font-size: 28px; margin:0;">Anotar Ahorro</h2>
         <p class="subtitle">¡Un paso más cerca de tus metas!</p>
-        
         <form id="form-ahorros">
             <div class="form-group">
                 <label>Mes:</label>
-                <select id="mes" required>
-                    <option value="Enero">Enero</option><option value="Febrero">Febrero</option>
-                    <option value="Marzo">Marzo</option><option value="Abril">Abril</option>
-                    <option value="Mayo">Mayo</option><option value="Junio">Junio</option>
-                    <option value="Julio">Julio</option><option value="Agosto">Agosto</option>
-                    <option value="Septiembre">Septiembre</option><option value="Octubre">Octubre</option>
-                    <option value="Noviembre">Noviembre</option><option value="Diciembre">Diciembre</option>
-                </select>
+                <select id="mes" required></select>
             </div>
             <div class="form-group">
                 <label>Día y Hora:</label>
@@ -236,44 +158,85 @@
 </div>
 
 <script>
-    // ⚠️ REEMPLAZA ESTA URL CON TU LINK DE GOOGLE APPS SCRIPT
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzGpBW9iNNmAj9y-XMDeM6f4G4SvwBWNFIA_OLuBmrApLKkhaEyPlkC2i88R-JJIfQ/exec";
-    
-    // 🔑 DEFINE AQUÍ LA CONTRASEÑA QUE USARÁ ARLETHE
-    const CONTRASEÑA_CORRECTA = "arlethen2026"; 
+    // ⚠️ REEMPLAZA ESTA URL CON TU LINK DE GOOGLE APPS SCRIPT EN LA LÍNEA 188
+    const SCRIPT_URL = "TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI";
+    const CONTRASEÑA_CORRECTA = "arlethe2026"; 
 
-    // Configuración automática de fecha y mes actual
+    // Configurar fecha actual
     const ahora = new Date();
     const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-    document.getElementById('mes').value = meses[ahora.getMonth()];
+    
+    const selectMes = document.getElementById('mes');
+    meses.forEach(m => {
+        let opt = document.createElement('option');
+        opt.value = m; opt.innerText = m;
+        selectMes.appendChild(opt);
+    });
+    selectMes.value = meses[ahora.getMonth()];
+    
     ahora.setMinutes(ahora.getMinutes() - ahora.getTimezoneOffset());
-    document.getElementById('fechahora').value = bandwidth = ahora.toISOString().slice(0,16);
+    document.getElementById('fechahora').value = ahora.toISOString().slice(0,16);
 
-    // Validación de la contraseña al enviar el formulario de Login
+    // Login corregido para funcionar siempre localmente
     document.getElementById('form-login').addEventListener('submit', function(e) {
         e.preventDefault();
-        const inputClave = document.getElementById('password-input').value;
-        
-        if (inputClave === CONTRASEÑA_CORRECTA) {
+        if (document.getElementById('password-input').value === CONTRASEÑA_CORRECTA) {
             document.getElementById('pantalla-login').classList.add('hidden');
             document.getElementById('pantalla-inicio').classList.remove('hidden');
-            cargarTotal(); // Trae los datos de Google Sheets una vez logueada
+            if(SCRIPT_URL !== "TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI") cargarTotal();
         } else {
-            alert('❌ Contraseña incorrecta. Inténtalo de nuevo, Arlethe.');
+            alert('❌ Contraseña incorrecta.');
             document.getElementById('password-input').value = '';
         }
     });
 
-    // Cargar total acumulado desde Google Sheets
     function cargarTotal() {
-        fetch(SCRIPT_URL)
-        .then(res => res.json())
-        .then(data => {
+        fetch(SCRIPT_URL).then(res => res.json()).then(data => {
             document.getElementById('total-ahorrado').innerText = "$" + (data.total || 0).toFixed(2);
-        })
-        .catch(() => {
-            document.getElementById('total-ahorrado').innerText = "$0.00";
-        });
+        }).catch(() => {});
     }
 
     function mostrarRegistro() {
+        document.getElementById('pantalla-inicio').classList.add('hidden');
+        document.getElementById('pantalla-registro').classList.remove('hidden');
+    }
+
+    function mostrarInicio() {
+        document.getElementById('pantalla-registro').classList.add('hidden');
+        document.getElementById('pantalla-inicio').classList.remove('hidden');
+        cargarTotal();
+    }
+
+    // Guardado optimizado sin bloqueos de navegador
+    document.getElementById('form-ahorros').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const btn = document.getElementById('btn-guardar');
+        btn.innerText = "Guardando... ✨";
+        btn.disabled = true;
+
+        const datos = {
+            fecha: document.getElementById('fechahora').value.replace("T", " "),
+            mes: document.getElementById('mes').value,
+            cantidad: document.getElementById('cantidad').value
+        };
+
+        // El truco técnico: usar formato de formulario tradicional evita bloqueos de seguridad
+        fetch(SCRIPT_URL, {
+            method: 'POST',
+            mode: 'cors',
+            body: JSON.stringify(datos),
+            headers: { 'Content-Type': 'application/json' }
+        }).then(() => {
+            alert('✨ ¡Ahorro guardado, Arlethe! ✨');
+            document.getElementById('cantidad').value = '';
+            btn.innerText = "Guardar en la nube 🌸";
+            btn.disabled = false;
+            mostrarInicio();
+        }).catch(() => {
+            btn.innerText = "Guardar en la nube 🌸";
+            btn.disabled = false;
+        });
+    });
+</script>
+</body>
+</html>

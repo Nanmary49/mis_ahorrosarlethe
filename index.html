@@ -229,7 +229,10 @@
 
         fetch(SCRIPT_URL, {
             method: 'POST',
-            mode: 'cors',
+            fetch(SCRIPT_URL, {
+    method: 'POST',
+    body: JSON.stringify(datos)
+})
             body: JSON.stringify(datos),
             headers: { 'Content-Type': 'application/json' }
         }).then(() => {
